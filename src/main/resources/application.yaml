@@ -1,11 +1,8 @@
 spring:
   application:
     name: back
-  datasource:
-    url: jdbc:h2:./db_dev
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+  profiles:
+    active: dev
   output:
     ansi:
       enabled: always
@@ -22,3 +19,4 @@ logging:
   level:
     org.hibernate.orm.jdbc.bind: TRACE
     org.hibernate.orm.jdbc.extract: TRACE
+    org.springframework.transaction.interceptor: TRACE

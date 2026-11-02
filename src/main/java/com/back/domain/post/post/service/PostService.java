@@ -16,11 +16,19 @@ public class PostService {
         return postRepository.count();
     }
 
-    public Post save(Post post) {
-        return postRepository.save(post);
-    }
-
     public Optional<Post> findById(int id) {
         return postRepository.findById(id);
+    }
+
+    public void modify(Post post, String title, String content) {
+        post.setTitle(title);
+        post.setContent(content);
+    }
+
+    public Post write(String title, String content) {
+        Post post = new Post(title, content);
+        postRepository.save(post);
+
+        return post;
     }
 }
